@@ -1,0 +1,12 @@
+# bind 127.0.0.1
+protected-mode no
+# port 6379
+后台启动 daemonize yes
+# pidfile /var/run/redis_6379.pid
+# logfile ""
+# dbfilename dump.rdb  持久化配置可以修改存储时间定义
+dir /opt/redis/data 生成数据文件路径
+masterauth <master-password>
+requirepass root
+#appendfilename "appendonly.aof"
+# replica-read-only yes
