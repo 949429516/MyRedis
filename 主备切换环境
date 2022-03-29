@@ -1,0 +1,10 @@
+sentinel.conf哨兵监听服务器
+# port 26379注释监听接口
+sentinel monitor mymaster 127.0.0.1 6379 2 3台服务器配置2，三台服务器有两台发现断连则选出主节点
+sentinel auth-pass mymaster root 配置密码
+sentinel down-after-milliseconds mymaster 10000 心跳(ping pong)机制配置时间毫秒（断开时间）
+sentinel failover-timeout mymaster 180000       恢复时间，如果超过该时间则判定恢复失败
+protected-mode no 关闭保护模式
+daemonize yes      后台启动
+
+哨兵监听主节点,主节点挂掉重新选择主节点
