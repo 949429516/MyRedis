@@ -1,0 +1,5 @@
+python3 manage.py shell
+from django.core.cache import cache
+cache.set('username','zhangsan',60*60)#有效期为1h
+cache.has_key('username')# 判断key是否存在
+cache.get("username")
