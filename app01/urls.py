@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path, re_path
+from app01 import views
+from django.views.decorators.cache import cache_page
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path('app01/', include('app01.urls')),
+    # url中增加redis缓存
+    path('test/', cache_page(60 * 15)(views.myredis)),
+    re_path('^person/$', views.find_person),
 ]

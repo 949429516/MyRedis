@@ -24,7 +24,7 @@ SECRET_KEY = '(x!=rp_j@gfhl$92$@-8h$ft4+u$(gx^*takph72^rjx-jc&6p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -35,19 +35,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app01',
 ]
 
 # 中间件添加
 MIDDLEWARE = [
-    "django.middleware.cache.UpdateCacheMiddleware",# 必须在最上面
+    #"django.middleware.cache.UpdateCacheMiddleware",# 必须在最上面
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django.middleware.cache.FetchFromCacheMiddleware",#必须在最下面
+    #"django.middleware.cache.FetchFromCacheMiddleware",#必须在最下面
 ]
 
 ROOT_URLCONF = 'MyRedis.urls'
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'MyRedis.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MyRedis',
+        'USER': 'root',
+        'PASSWORD': '19950811',
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
     }
 }
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="/app01/person/">
+        <input type="text" name="user">
+        <input type="submit" value="提交">
+    </form>
+    <ul>
+        {% for row in name_list %}
+            <li>{{ row.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
